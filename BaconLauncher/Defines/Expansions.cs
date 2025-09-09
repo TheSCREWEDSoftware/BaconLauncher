@@ -16,6 +16,8 @@ namespace BaconLauncher.GameDefines
         WoD,
         Legion,
         BfA,
-        Shadowlands
+        SL,
+        DF,
+        TWW
     }
 }
