@@ -111,8 +111,8 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <WrapPanel x:Name="iconsWrapPanel">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <WrapPanel x:Name="iconsWrapPanel" Width="730">
         </WrapPanel>
-    </Grid>
+    </ScrollViewer>
 </mah:MetroWindow>
