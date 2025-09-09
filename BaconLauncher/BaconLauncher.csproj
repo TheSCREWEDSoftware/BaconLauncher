@@ -21,12 +21,14 @@
     <None Remove="Resources\Icons\mop_icon.png" />
     <None Remove="Resources\Icons\questionmark.png" />
     <None Remove="Resources\Icons\red_healthpot.png" />
-    <None Remove="Resources\Icons\shadowlands_icon.png" />
+    <None Remove="Resources\Icons\sl_icon.png" />
     <None Remove="Resources\Icons\tbc_icon.png" />
     <None Remove="Resources\Icons\vanilla_icon.png" />
     <None Remove="Resources\Icons\wod_icon.png" />
     <None Remove="Resources\Icons\wotlk_icon.png" />
     <None Remove="Resources\Icons\wrench.png" />
+	<None Remove="Resources\Icons\df_icon.png" />
+	<None Remove="Resources\Icons\tww_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,12 +54,14 @@
     <Resource Include="Resources\Icons\mop_icon.png" />
     <Resource Include="Resources\Icons\questionmark.png" />
     <Resource Include="Resources\Icons\red_healthpot.png" />
-    <Resource Include="Resources\Icons\shadowlands_icon.png" />
+    <Resource Include="Resources\Icons\sl_icon.png" />
     <Resource Include="Resources\Icons\tbc_icon.png" />
     <Resource Include="Resources\Icons\vanilla_icon.png" />
     <Resource Include="Resources\Icons\wod_icon.png" />
     <Resource Include="Resources\Icons\wotlk_icon.png" />
     <Resource Include="Resources\Icons\wrench.png" />
+	<Resource Include="Resources\Icons\df_icon.png" />
+	<Resource Include="Resources\Icons\tww_icon.png" />
   </ItemGroup>
 
 </Project>
