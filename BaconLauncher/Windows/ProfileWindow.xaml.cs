@@ -36,7 +36,7 @@ namespace BaconLauncher
             if (EditingProfile == null)
             {
                 // Creating a profile
-                Title = "Create Profile"; 
+                Title = "Create Profile";
 
                 // Set default expansion to WoTLK
                 ExpansionsComboBox.SelectedIndex = (int)GameDefines.Expansions.WoTLK;
@@ -176,5 +176,22 @@ namespace BaconLauncher
             iw.Owner = this;
             iw.Show();
         }
+
+        private void RealmlistTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Avoid build errors for now
+        }
+
+        private void ExpansionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Avoid build errors for now
+        }
+
+        private void SaveRealmlistBeforeOverwriteCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            // Avoid build errors for now
+        }
     }
+
+
 }
