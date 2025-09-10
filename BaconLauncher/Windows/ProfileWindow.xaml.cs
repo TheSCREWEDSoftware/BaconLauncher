@@ -97,6 +97,41 @@ namespace BaconLauncher
                 wowSettings.Expansion = (GameDefines.Expansions)ExpansionsComboBox.SelectedIndex;
                 wowSettings.Realmlist = RealmlistTextBox.Text;
                 profile.ApplicationSpecificSettings = wowSettings;
+
+                // Backup/copy config.wtf or realmlist.wtf depending on exp
+                if (SaveRealmlistBeforeOverwriteCheckBox.IsChecked == true)
+                {
+                    string rootPath = System.IO.Path.GetDirectoryName(executableLocationTextBox.Text);
+                    string backupFile = null;
+                    string targetFile = null;
+                    string timestamp = DateTime.Now.ToString("yyyy-MM-dd--HH-mm--ss");
+                    if (wowSettings.Expansion >= GameDefines.Expansions.MoP)
+                    {
+                        // MoP and higher use WTF/Config.wtf
+                        string wtfPath = System.IO.Path.Combine(rootPath, "WTF");
+                        targetFile = System.IO.Path.Combine(wtfPath, "Config.wtf");
+                        if (File.Exists(targetFile))
+                        {
+                            backupFile = System.IO.Path.Combine(wtfPath, $"{timestamp}_Config.wtf");
+                            File.Copy(targetFile, backupFile, true);
+                        }
+                    }
+                    else
+                    {
+                        // Cata and lower use Data/locale/realmlist.wtf
+                        string dataPath = System.IO.Path.Combine(rootPath, "Data");
+                        foreach (string gameLocale in GameDefines.Locales.LookupTable)
+                        {
+                            string localePath = System.IO.Path.Combine(dataPath, gameLocale);
+                            targetFile = System.IO.Path.Combine(localePath, "realmlist.wtf");
+                            if (File.Exists(targetFile))
+                            {
+                                backupFile = System.IO.Path.Combine(localePath, $"{timestamp}_realmlist.wtf");
+                                File.Copy(targetFile, backupFile, true);
+                            }
+                        }
+                    }
+                }
             }
             else
                 profile.ApplicationSpecificSettings = null;
