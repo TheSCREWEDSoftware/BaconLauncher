@@ -49,9 +49,11 @@
         <GroupBox x:Name="WoWSpecificSettingsGroupBox" Header="Application specific settings" Margin="10,213,11,58" Visibility="Visible">
             <Grid>
                 <Label Content="Realmlist:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-5,0,0" />
-                <TextBox x:Name="RealmlistTextBox" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="214" />
+                <TextBox x:Name="RealmlistTextBox" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="214" TextChanged="RealmlistTextBox_TextChanged" />
                 <Label Content="Expansion:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="235,-5,0,0" />
-                <ComboBox x:Name="ExpansionsComboBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="110" Height="30" ItemsSource="{Binding Source={StaticResource xpacEnumValues}}" Margin="235,0,0,0" />
+                <ComboBox x:Name="ExpansionsComboBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="110" Height="30" ItemsSource="{Binding Source={StaticResource xpacEnumValues}}" Margin="235,0,0,0" SelectionChanged="ExpansionsComboBox_SelectionChanged" />
+                <CheckBox x:Name="SaveRealmlistBeforeOverwriteCheckBox" Content="Save realmlist file&#xD;&#xA; before overwriting" VerticalAlignment="Top" Margin="378,0,10,0" Checked="SaveRealmlistBeforeOverwriteCheckBox_Checked" Height="34"/>
+                <CheckBox x:Name="SaveRealmlistBeforeOverwriteCheckBox_Copy" Content="Clear Cache always" VerticalAlignment="Top" Margin="378,40,10,0" Checked="SaveRealmlistBeforeOverwriteCheckBox_Checked" Height="34"/>
             </Grid>
         </GroupBox>
         <Image x:Name="IconImage" Style="{StaticResource ImageStyle}" HorizontalAlignment="Left" Height="90" Margin="450,10,0,0" VerticalAlignment="Top" Width="84" MouseLeftButtonDown="OnIconClicked" />
