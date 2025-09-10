@@ -19,6 +19,7 @@ using System.Xml.Serialization;
 using System.IO;
 using BaconLauncher.Windows;
 using BaconLauncher.Config;
+using System.Diagnostics.Eventing.Reader;
 
 namespace BaconLauncher
 {
@@ -123,15 +124,34 @@ namespace BaconLauncher
                             // write the config file back without the realm list setting
                             using (StreamWriter writer = new StreamWriter(realmlistFile, false))
                             {
-                                for (int i = 0; i < lines.Length; ++i)
-                                {
-                                    string line = lines[i];
-                                    if (line.IndexOf("SET realmlist", StringComparison.OrdinalIgnoreCase) == -1)
-                                        writer.WriteLine(line);
-                                }
 
-                                // Write the new realm list setting
-                                writer.WriteLine("SET realmlist \"" + settings.Realmlist + "\"");
+                                if (settings.Expansion < GameDefines.Expansions.DF)
+                                {
+
+                                    for (int i = 0; i < lines.Length; ++i)
+                                    {
+                                        string line = lines[i];
+                                        if (line.IndexOf("SET realmlist", StringComparison.OrdinalIgnoreCase) == -1)
+                                            writer.WriteLine(line);
+                                    }
+
+                                    // Write the new realm list setting
+                                    writer.WriteLine("SET realmlist \"" + settings.Realmlist + "\"");
+
+                                }
+                                // DF and above uses SET portal "realmlist"
+                                else
+                                {
+                                    for (int i = 0; i < lines.Length; ++i)
+                                    {
+                                        string line = lines[i];
+                                        if (line.IndexOf("SET portal", StringComparison.OrdinalIgnoreCase) == -1)
+                                            writer.WriteLine(line);
+                                    }
+
+                                    // Write the new realm list setting
+                                    writer.WriteLine("SET portal \"" + settings.Realmlist + "\"");
+                                }
                             }
                         }
                     }
